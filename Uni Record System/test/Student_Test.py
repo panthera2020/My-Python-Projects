@@ -26,6 +26,12 @@ class MyTestCase(unittest.TestCase):
         self.student.add_course("Math")
         self.assertEqual(1,len(self.student.get_courses()))
 
+    def test_that_student_can_remove_added_course(self):
+        self.student.add_course("Math")
+        self.assertEqual(1,len(self.student.get_courses()))
+        self.student.remove_course("Math")
+        self.assertEqual(0,len(self.student.get_courses()))
+
     def test_that_student_can_add_address_and_zip_code(self):
         self.student.add_adress("2, Bolevard street, New York", 12344)
         self.assertEqual({"City":"2, Bolevard street, New York", "Zip-code": 12344}, self.student.get_address())
