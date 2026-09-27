@@ -1,10 +1,8 @@
 from dispenser import Dispenser
 from purchase_handler import PurchaseHandler
 
-dispenser = Dispenser()
-start = True
-while start:
-    welcome_message = """
+
+welcome_message = """
     ===============================
     WELCOME TO OWONIKOKO STATTION
     ===============================
@@ -14,11 +12,8 @@ while start:
     PRESS 3 -> TO EXIT
     ===============================
     """
-    user_choice = input(welcome_message)
-    handler = PurchaseHandler(dispenser)
-    if user_choice == "1":
-        nozzle = True
-        available_products = """
+
+available_products = """
             AVAILABLE PETROLEUM
             ========================
             1. PETROL   => 650/LITER
@@ -29,13 +24,19 @@ while start:
             0. EXIT
             =======================
             """
+
+dispenser = Dispenser()
+start = True
+while start:
+    user_choice = input(welcome_message)
+    handler = PurchaseHandler(dispenser)
+    if user_choice == "1":
+        nozzle = True
         while nozzle:
             product_choice = input(available_products)
             if product_choice == "0": nozzle = False
-            elif product_choice in ["1", "2", "3", "4"]:
-                handler.handle_purchase(int(product_choice))
+            elif product_choice in ["1", "2", "3", "4"]: handler.handle_purchase(int(product_choice))
             else: print("Incorrect input\nPlease enter 1, 2, 3 or 4")
-
     elif user_choice == "2":
         transaction_log = len(dispenser.get_products())
         if transaction_log > 0:
