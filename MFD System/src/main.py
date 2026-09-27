@@ -15,10 +15,9 @@ while start:
     ===============================
     """
     user_choice = input(welcome_message)
+    handler = PurchaseHandler(dispenser)
     if user_choice == "1":
         nozzle = True
-        handler = PurchaseHandler(dispenser)
-
         available_products = """
             AVAILABLE PETROLEUM
             ========================
@@ -40,16 +39,7 @@ while start:
     elif user_choice == "2":
         transaction_log = len(dispenser.get_products())
         if transaction_log > 0:
-            products = dispenser.get_products()
-            for product in products:
-                print("=======================================")
-                print("=   Product:    ", product.get_product_name())
-                print("=   Amount:     ", product.get_amount())
-                print("    Liters:     ", product.get_liter())
-                print("    Date:       ", product.get_date())
-                print("=======================================")
-                print()
-                print()
+            handler.get_purchase_history()
         else: print("No Transaction Available")
     elif user_choice == "3": start = False
     else: print("Incorrect input\nPlease enter 1, 2 or 3")

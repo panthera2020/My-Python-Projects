@@ -45,3 +45,15 @@ class PurchaseHandler:
         print("=   Thank you for your Patronage                =")
         print("=======================================")
         print("Saving Transaction History.......")
+
+    def get_purchase_history(self):
+        products = self.dispenser.get_products()
+        for product in products:
+            print("=======================================")
+            print("=   Product:    ", product.get_product_name())
+            print("=   Amount:     ", product.get_amount())
+            print("    Liters:     ", product.get_liter())
+            print("    Date:       ", product.get_date())
+            print("=======================================")
+            print()
+            print()
