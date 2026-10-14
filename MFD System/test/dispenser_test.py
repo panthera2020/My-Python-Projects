@@ -1,6 +1,6 @@
 import unittest
 
-from Product import Product
+from product import Product
 from dispenser import Dispenser
 
 class DispenserTest(unittest.TestCase):

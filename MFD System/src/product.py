@@ -1,4 +1,4 @@
-from Product_Type import ProductType
+from product_type import ProductType
 from datetime import datetime
 
 class Product:
